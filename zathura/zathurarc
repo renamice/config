@@ -12,6 +12,8 @@ map J zoom out
 map i recolor
 map p print
 map b toggle_statusbar
+map [ navigate previous
+map ] navigate next
 
 # Gruvbox
 set notification-error-bg       "#282828" # bg
