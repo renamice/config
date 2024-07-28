@@ -8,6 +8,8 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 map("i", "kj", "<ESC>")
 
+map({ "n", "i", "v" }, "zm", "<cmd> ZenMode <cr>")
+
 local M = {}
 
 return M
