@@ -15,6 +15,7 @@ return {
         "rust-analyzer",
         "clangd",
         "clang-format",
+        "codelldb",
         "isort",
         "black",
         "basedpyright",
