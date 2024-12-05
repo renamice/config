@@ -1,15 +1,17 @@
 require "nvchad.options"
 
 -- add yours here!
-vim.opt.colorcolumn = "80"
 
-vim.g.tmux_navigator_preserve_zoom = 1
+local wo = vim.wo
+wo.relativenumber = true
 
-vim.o.cursorlineopt = "both"
+local g = vim.g
+g.tmux_navigator_save_on_switch = 1
+g.tmux_navigator_disable_when_zoomed = 1
 
-vim.wo.relativenumber = true
-
-vim.o.tabstop = 4
-vim.o.expandtab = true
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
+local o = vim.o
+o.cursorlineopt = "both" -- to enable cursorline!
+o.tabstop = 4
+o.expandtab = true
+o.softtabstop = 4
+o.shiftwidth = 4

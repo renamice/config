@@ -3,6 +3,7 @@ return {
   event = "VeryLazy",
   dependencies = {
     "rcarriga/nvim-dap-ui",
+    "mfussenegger/nvim-dap-python",
     "nvim-neotest/nvim-nio",
     "theHamsta/nvim-dap-virtual-text",
   },
@@ -29,7 +30,7 @@ return {
       dapui.close()
     end
 
-    dap.adapters.codelldb = {
+    dap.adapters.codelltruedb = {
       type = "server",
       port = "${port}",
       executable = {
@@ -54,7 +55,7 @@ return {
             os.execute "make debug"
           else
             if filetype == "c" then
-              os.execute(string.format("gcc -g -o %s %s", basename, filename)) -- remove this -lcs50, i can't find a way to execute make debug
+              os.execute(string.format("gcc -g -o %s %s", basename, filename))
             else
               os.execute(string.format("g++ -g -o %s %s", basename, filename))
             end
@@ -117,6 +118,9 @@ return {
         },
       },
     }
+
+    Path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+    require("dap-python").setup(Path)
 
     vim.keymap.set("n", "<leader>dc", dap.clear_breakpoints, {})
     vim.keymap.set("n", "<Leader>dt", dap.toggle_breakpoint, {})
