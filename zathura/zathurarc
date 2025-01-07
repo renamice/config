@@ -1,19 +1,34 @@
 set statusbar-h-padding 0
 set statusbar-v-padding 0
 set page-padding 1
-set guioptions none
+
 map u scroll half-up
 map d scroll half-down
 map D toggle_page_mode
 map r reload
 map R rotate
-map K zoom in
-map J zoom out
 map i recolor
 map p print
 map b toggle_statusbar
 map [ navigate previous
 map ] navigate next
+map \# focus_inputbar ":blist "
+map <C-b> focus_inputbar ":bmark "
+map <C-u> focus_inputbar ":bdelete "
+
+map [fullscreen] u scroll half-up
+map [fullscreen] d scroll half-down
+map [fullscreen] D toggle_page_mode
+map [fullscreen] r reload
+map [fullscreen] R rotate
+map [fullscreen] i recolor
+map [fullscreen] p print
+map [fullscreen] b toggle_statusbar
+map [fullscreen] [ navigate previous
+map [fullscreen] ] navigate next
+map [fullscreen] \# focus_inputbar ":blist "
+map [fullscreen] <C-b> focus_inputbar ":bmark "
+map [fullscreen] <C-u> focus_inputbar ":bdelete "
 
 # Gruvbox
 set notification-error-bg       "#282828" # bg
