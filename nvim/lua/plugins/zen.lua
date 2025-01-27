@@ -23,7 +23,22 @@ return {
         laststatus = 0,
       },
       twilight = { enabled = true },
-      tmux = { enabled = true },
+      tmux = { enabled = false },
     },
   },
+  config = function()
+    require("zen-mode").setup({
+      vim.keymap.set({ "n", "i", "v" }, "<leader>zm", "<cmd> ZenMode <cr>"),
+      on_open = function(_)
+        vim.fn.system([[tmux set status off]])
+        vim.fn.system(
+          [[tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z]])
+      end,
+      on_close = function(_)
+        vim.fn.system([[tmux set status on]])
+        vim.fn.system(
+          [[tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z]])
+      end
+    })
+  end,
 }
