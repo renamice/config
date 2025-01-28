@@ -16,8 +16,8 @@ return {
     version = "*",
     build = 'cargo build --release',
 
-    --@module "blink.cmp"
-    --@type blink.cmp.Config
+    ---@module "blink.cmp"
+    ---@type blink.cmp.Config
     config = function()
       require("blink.cmp").setup({
 
@@ -46,10 +46,6 @@ return {
             min_width = 15,
             max_height = 10,
             border = "none",
-            winblend = 0,
-            winhighlight =
-            'Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None',
-
             draw = {
               align_to = "label",
               padding = 1,
@@ -71,6 +67,6 @@ return {
         },
       })
     end,
-    -- opts_extend = { "sources.default" },
+    opts_extend = { "sources.default" },
   },
 }
