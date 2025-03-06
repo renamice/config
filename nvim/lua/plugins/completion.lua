@@ -43,6 +43,7 @@ return {
 
           menu = {
             enabled = true,
+            scrollbar = true,
             min_width = 15,
             max_height = 10,
             border = "none",
@@ -52,9 +53,9 @@ return {
               gap = 1,
               treesitter = { "lsp" },
               columns = {
-                { "kind_icon",   "kind",              gap = 1 },
-                { "label",       "label_description", gap = 1 },
-                { "source_name", },
+                { "kind_icon",  "kind",              gap = 1 },
+                { "label",      "label_description", gap = 1 },
+                { "source_name" },
               },
             },
           },

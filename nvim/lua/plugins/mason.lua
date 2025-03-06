@@ -7,16 +7,28 @@ return {
         "clangd",
         "lua_ls",
         "rust_analyzer",
-        "dcm",
+        "html",
+        "cssls",
+        "svelte",
+        "emmet_ls",
         -- Linters
+        "eslint_d",
+        "pylint",
         -- Formatters
         "prettier",
+        "dcm",
         "stylua",
+        "black",
+        "isort",
+        "rustfmt",
+        -- DAP
+        "dart-debug-adapter",
       },
+      automatic_installation = true,
     },
+
     config = function()
       require("mason").setup()
     end,
-
   },
 }

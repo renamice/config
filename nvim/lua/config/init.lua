@@ -1,5 +1,6 @@
 require("config.remap")
 require("config.lazy")
+require("config.custom")
 
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2

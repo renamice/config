@@ -7,6 +7,19 @@ return {
       local lspconfig = require('lspconfig')
 
       lspconfig['lua_ls'].setup({ capabilities = capabilities })
+      lspconfig['gopls'].setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+        cmd = { "gopls" },
+        filetypes = { "go", "gomod", "gowork", "gotmpl" },
+        settings = {
+          completeUnimported = true,
+          userPlaceholders = true,
+          analyses = {
+            unusedparameter = true,
+          }
+        }
+      })
     end
   },
   {
@@ -21,6 +34,7 @@ return {
           "clangd",
           "lua_ls",
           "rust_analyzer",
+          "gopls"
         }
       }
 

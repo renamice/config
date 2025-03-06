@@ -3,13 +3,10 @@ vim.g.mapleader = " "
 local map = vim.keymap.set
 
 -- File tree
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "netrw",
-  callback = function()
-    vim.wo.relativenumber = true
-  end,
-})
-map("n", "<leader>pv", vim.cmd.Ex)
+map("n", "<leader>pv", function()
+  vim.api.nvim_command("w") -- otherwise netrw will not open files saying "haven't saved buffer" or sth
+  vim.cmd.Ex()
+end)
 
 map("n", "<Esc>", vim.cmd.nohlsearch)
 map("n", ";", ":", { desc = "CMD enter command mode" })
@@ -19,7 +16,6 @@ map("i", "JK", "<Esc>")
 -- Split
 map("n", "<leader>l", vim.cmd.vsplit)
 map("n", "<leader>j", vim.cmd.split)
---map("n", "<leader>j", vim.cmd.split)
 
 -- Navigate vim panes better
 map("n", "<C-k>", ":wincmd k<CR>")
@@ -38,37 +34,27 @@ end
 )
 
 local opts = { noremap = true, silent = true }
--- Navigate  in inser t mode
-vim.keymap.set("i", "<C-h>", "<C-o>h", opts)
-vim.keymap.set("i", "<C-j>", "<C-o>j", opts)
-vim.keymap.set("i", "<C-k>", "<C-o>k", opts)
-vim.keymap.set("i", "<C-l>", "<C-o>a", opts)
-vim.keymap.set("i", "<C-e>", "<C-o>e", opts)
-vim.keymap.set("i", "<C-b>", "<C-o>b", opts)
+
+map("i", "<C-h>", "<Left>", opts)
+map("i", "<C-j>", "<Down>", opts)
+map("i", "<C-k>", "<Up>", opts)
+map("i", "<C-l>", "<Right>", opts)
+map("i", "<C-e>", "<C-Left>", opts)
+map("i", "<C-b>", "<C-Right>", opts)
+map("n", "<C-d>", "<C-d>zz", opts)
+map("n", "<C-u>", "<C-u>zz", opts)
 
 -- Terminal
-vim.keymap.set("t", "<C-q>", [[<C-\><C-n>]], { noremap = true, silent = true })
-map("n", "<space>st", function()
+map("t", "<C-q>", [[<C-\><C-n>]], { noremap = true, silent = true })
+map("n", "<leader>st", function()
+  vim.cmd("cd %:p:h")
   vim.cmd.vnew()
-  vim.cmd.term()
   vim.cmd.wincmd("J")
   vim.api.nvim_win_set_height(0, 9)
-  vim.cmd.startinsert()
+  vim.cmd("terminal")
+  vim.cmd("startinsert")
 end)
 
--- Netrw
-vim.api.nvim_create_autocmd('filetype', {
-  pattern = 'netrw',
-  desc = 'Better mappings for netrw',
-  callback = function()
-    local bind = function(lhs, rhs)
-      vim.keymap.set('n', lhs, rhs, { remap = true, buffer = true })
-    end
-
-    -- edit new file
-    bind('n', '%')
-
-    -- rename file
-    bind('r', 'R')
-  end
-})
+-- Editor
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" })
+map("v", "<C-c>", '"+y', { desc = "Easy copy" })
