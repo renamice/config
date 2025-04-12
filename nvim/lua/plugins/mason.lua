@@ -13,6 +13,7 @@ return {
         "emmet_ls",
         -- Linters
         "eslint_d",
+        "golangci-lint",
         "pylint",
         -- Formatters
         "prettier",
@@ -21,6 +22,7 @@ return {
         "black",
         "isort",
         "rustfmt",
+        "gofumpt",
         -- DAP
         "dart-debug-adapter",
       },

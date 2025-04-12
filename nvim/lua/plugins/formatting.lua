@@ -9,9 +9,11 @@ return {
       formatters_by_ft = {
         python = { "isort", "black" },
         java = { "clang-format" },
+        go = { "gofumpt" },
 
         svelte = { "prettier" },
         javascript = { "prettier" },
+        javascriptreact = { "prettier" },
         html = { "prettier" },
         css = { "prettier" },
         json = { "prettier" },
