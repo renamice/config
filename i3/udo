@@ -1,0 +1,13 @@
+ERROR: Received ConfigureNotify for unknown window 0x00600000
+ERROR: Received ConfigureNotify for unknown window 0x00600000
+ERROR: Received ConfigureNotify for unknown window 0x00600008
+ERROR: Received ConfigureNotify for unknown window 0x00600008
+ERROR: Received ConfigureNotify for unknown window 0x0060000c
+ERROR: Received ExposeEvent for unknown window 0x0060000c
+ERROR: Received ConfigureNotify for unknown window 0x0060000c
+ERROR: Received ConfigureNotify for unknown window 0x00600010
+ERROR: Received ExposeEvent for unknown window 0x00600010
+ERROR: Received ConfigureNotify for unknown window 0x00600010
+ERROR: Received ConfigureNotify for unknown window 0x00600014
+ERROR: Received ExposeEvent for unknown window 0x00600014
+ERROR: Received ConfigureNotify for unknown window 0x00600014

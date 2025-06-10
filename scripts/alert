@@ -1,0 +1,3 @@
+#!/bin/sh
+
+paplay "/home/${USER}/.config/dunst/alert.ogg"

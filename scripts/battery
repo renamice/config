@@ -1,0 +1,18 @@
+#!/bin/sh
+
+state=$(cat /sys/class/power_supply/BAT0/status)
+percentage=$(cat /sys/class/power_supply/BAT0/capacity)
+
+if [[ "$state" == "Charging" ]]; then
+    echo "charging $percentage%"
+
+    if [[ "$percentage" -gt "80" ]]; then
+	notify-send "Enough Charging!" -u normal
+    fi
+else
+    echo "battery $percentage%"
+
+    if [[ "$percentage" -lt "20" ]]; then
+	notify-send "Battery running out!" -u critical
+    fi
+fi

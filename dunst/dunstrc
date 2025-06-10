@@ -1,0 +1,48 @@
+[global]
+    width = 400
+    offset = 5x5
+    
+    progress_bar_min_width = 380
+    progress_bar_max_width = 380
+    progress_bar_corner_radius = 2
+
+    padding = 12
+    horizontal_padding = 10
+    frame_width = 1
+    gap_size = 3
+    font = "JetBrains Mono Nerd Font"
+
+    icon_path = "/home/rizantmz/.config/dunst/icons/"
+    max_icon_size= 24
+    corner_radius = 0
+
+    frame_color = "#d5c4a1"
+    separator_color = "#d5c4a1"
+
+[urgency_low]
+    background = "#3c3836"
+    foreground = "#665c54"
+    timeout = 5
+    new_icon = bell
+
+[urgency_normal]
+    background = "#504945"
+    foreground = "#d5c4a1"
+    timeout = 20
+    default_icon = bell
+
+[urgency_critical]
+    background = "#fb4934"
+    foreground = "#ebdbb2"
+    default_icon = bell
+
+[play_sound]
+    summary = "*"
+    script = "~/.config/scripts/alert"
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
+
