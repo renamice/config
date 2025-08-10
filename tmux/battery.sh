@@ -1,9 +1,6 @@
-#!/bin/sh
+state=$(cat /sys/class/power_supply/BAT0/status)
 
-state=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep "state" | awk '{print $2}')
-percentage=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep "percentage" | awk '{print $2}')
-
-if [ "$state" = "charging" ]; then
+if [ "$state" = "Charging" ]; then
     echo "(●︎)$percentage"
 else
     echo "(◯)$percentage"
